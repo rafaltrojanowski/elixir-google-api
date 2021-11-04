@@ -45,7 +45,7 @@ defmodule GoogleApi.Gax.ModelBase do
       @doc """
       Unwrap a decoded JSON object into its complex fields.
       """
-      @spec decode(struct(), keyword()) :: struct()
+      @spec decode(struct(), map()) :: struct()
       def decode(value, _options) do
         Enum.reduce(@fields, value, fn {field_name, opts}, v ->
           if struct = Keyword.get(opts, :as) do
